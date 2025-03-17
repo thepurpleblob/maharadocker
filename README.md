@@ -1,4 +1,4 @@
-* Create subdirectory app
+* Create subdirectory (of this directory) app
 * Create app/files and change permissions to 0777 (write everybody)
 * Copy or clone the mahara github repo to app/mahara 
 * Check out correct branch if you need to
