@@ -1,0 +1,26 @@
+services:
+    mahara:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes: 
+            - ./app/files:/var/maharafiles
+        ports:
+            - 8080:80
+    mysql:
+        image: mariadb:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: 'purple'
+            MYSQL_USER: 'maharauser'
+            MYSQL_PASSWORD: 'maharapass'
+            MYSQL_DATABASE: 'mahara'
+        restart: always
+        volumes:
+            - maharadata:/var/lib/mysql:delegated
+        ports:
+            - 3307:3306
+    redis:
+        image: redis:latest
+volumes:
+    maharadata:
+
