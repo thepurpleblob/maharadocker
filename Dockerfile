@@ -13,6 +13,7 @@ RUN npm rebuild node-sass
 WORKDIR /app
 RUN npm install
 RUN gulp css
+RUN gulp prep-js-dependencies
 
 FROM shinsenter/phpfpm-apache:php8.2 AS web
 COPY --from=gulpstuff /app/ /var/www/html
